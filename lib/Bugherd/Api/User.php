@@ -10,6 +10,9 @@ namespace Bugherd\Api;
  */
 class User extends AbstractApi
 {
+	/**
+
+     */
     protected $users = array();
     protected $members = array();
     protected $guests = array();
@@ -18,10 +21,11 @@ class User extends AbstractApi
      * List all users
      *
      * @return array list of users found
+     * @param  array $params the additional parameters (cf avaiable $params above)
      */
-    public function all()
+    public function all(array $params = array())
     {
-        $this->users = $this->retrieveAll('/users.json');
+        $this->users = $this->retrieveAll('/users.json', $params);
 
         return $this->users;
     }
